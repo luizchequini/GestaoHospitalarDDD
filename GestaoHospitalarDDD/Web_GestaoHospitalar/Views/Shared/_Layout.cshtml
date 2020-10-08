@@ -1,77 +1,71 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Web_GestaoHospitalar</title>
+﻿<!---->
+<!doctype html>
+<!--[if lt IE 8]><html class="no-js lt-ie8"> <![endif]-->
+<html class="no-js">
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
+@await Html.PartialAsync("PartialViews/_Head");
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Web_GestaoHospitalar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    @await Html.PartialAsync("PartialViews/_Navbar");
+
+    <div id="wrapper">
+        <aside id="sidebar" class="page-sidebar hidden-md hidden-sm hidden-xs">
+            <div class="sidebar-inner">
+                <div class="sidebar-scrollarea">
+
+                    @await Html.PartialAsync("PartialViews/_Sidebar-Panel-Profile") ;
+
+                    @await Html.PartialAsync("PartialViews/_List-Side-Nav");
+
+                    @await Html.PartialAsync("PartialViews/_Sidebar-Panel-Footer");
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </aside>
+
+        @await Html.PartialAsync("PartialViews/_Right-Sidebar");
+
+        <div class="page-content sidebar-page right-sidebar-page clearfix">
+            <!-- .page-content-wrapper -->
+            <div class="page-content-wrapper">
+                <div class="page-content-inner">
+                    <!-- .page-content-inner -->
+                    <div id="page-header" class="clearfix">
+                        <div class="page-header">
+                            <h2>Dashboard</h2>
+                            <span class="txt">Welcome to Dynamic admin</span>
+                        </div>
+                        <div class="header-stats">
+                            <div class="spark clearfix">
+                                <div class="spark-info"><span class="number">2345</span>Visitors</div>
+                                <div id="spark-visitors" class="sparkline"></div>
+                            </div>
+                            <div class="spark clearfix">
+                                <div class="spark-info"><span class="number">17345</span>Views</div>
+                                <div id="spark-templateviews" class="sparkline"></div>
+                            </div>
+                            <div class="spark clearfix">
+                                <div class="spark-info"><span class="number">3700$</span>Sales</div>
+                                <div id="spark-sales" class="sparkline"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @RenderBody();
+
+                </div>
+                <!-- / .page-content-inner -->
+            </div>
+            <!-- / page-content-wrapper -->
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Web_GestaoHospitalar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    @await Html.PartialAsync("PartialViews/_Footer");
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Html.PartialAsync("PartialViews/_Scripts");
 
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
