@@ -3,30 +3,30 @@
 <!--[if lt IE 8]><html class="no-js lt-ie8"> <![endif]-->
 <html class="no-js">
 
-@await Html.PartialAsync("PartialViews/_Head");
+@await Html.PartialAsync("PartialViews/_Head")
 
 <body>
     <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    @await Html.PartialAsync("PartialViews/_Navbar");
+    @await Html.PartialAsync("PartialViews/_Navbar")
 
     <div id="wrapper">
         <aside id="sidebar" class="page-sidebar hidden-md hidden-sm hidden-xs">
             <div class="sidebar-inner">
                 <div class="sidebar-scrollarea">
 
-                    @await Html.PartialAsync("PartialViews/_Sidebar-Panel-Profile") ;
+                    @await Html.PartialAsync("PartialViews/_Sidebar-Panel-Profile")
 
-                    @await Html.PartialAsync("PartialViews/_List-Side-Nav");
+                    @await Html.PartialAsync("PartialViews/_List-Side-Nav")
 
-                    @await Html.PartialAsync("PartialViews/_Sidebar-Panel-Footer");
+                    @await Html.PartialAsync("PartialViews/_Sidebar-Panel-Footer")
                 </div>
             </div>
         </aside>
 
-        @await Html.PartialAsync("PartialViews/_Right-Sidebar");
+        @await Html.PartialAsync("PartialViews/_Right-Sidebar")
 
         <div class="page-content sidebar-page right-sidebar-page clearfix">
             <!-- .page-content-wrapper -->
@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                    @RenderBody();
+                    @RenderBody()
 
                 </div>
                 <!-- / .page-content-inner -->
@@ -63,9 +63,11 @@
         </div>
     </div>
 
-    @await Html.PartialAsync("PartialViews/_Footer");
+    @await Html.PartialAsync("PartialViews/_Footer")
 
-    @await Html.PartialAsync("PartialViews/_Scripts");
+    @await Html.PartialAsync("PartialViews/_Scripts")
+
+    @RenderSection("scripts", required: false);
 
 </body>
 </html>

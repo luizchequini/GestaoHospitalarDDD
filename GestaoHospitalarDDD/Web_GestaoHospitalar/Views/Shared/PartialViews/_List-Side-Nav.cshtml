@@ -4,29 +4,26 @@
 <div class="side-nav">
     <ul class="nav">
         <li>
-            <a href="index.html"><i class="l-basic-laptop"></i><span class="txt">Dashboard</span></a>
+            <a asp-controller="Home" asp-action="Index"><i class="l-basic-laptop"></i><span class="txt">Dashboard</span></a>
         </li>
-        <li>
+        @*<li>
             <a href="http://themes.suggelab.com/#dynamic_frontend" target="_blank"><i class="l-basic-webpage"></i><span class="txt">Frontend</span><span class="label">hot</span></a>
-        </li>
+        </li>*@
         <li>
             <a href="#"><i class="l-ecommerce-graph1"></i> <span class="txt">Charts</span></a>
             <ul class="sub">
                 <li>
-                    <a href="charts-flot.html"><span class="txt">Flot charts</span></a>
+                    <a asp-controller="Home" asp-action="Index"><span class="txt">Home</span></a>
                 </li>
                 <li>
-                    <a href="charts-morris.html"><span class="txt">Morris charts</span></a>
+                    <a asp-controller="Home" asp-action="Icons"><span class="txt">Icones</span></a>
                 </li>
                 <li>
-                    <a href="charts-chartjs.html"><span class="txt">Chartjs </span></a>
-                </li>
-                <li>
-                    <a href="charts-other.html"><span class="txt">Other charts</span></a>
+                    <a asp-controller="Home" asp-action="Privacy"><span class="txt">Privacidade</span></a>
                 </li>
             </ul>
         </li>
-        <li>
+        @*<li>
             <a href="#"><i class="l-basic-webpage-txt"></i><span class="txt">Forms</span></a>
             <ul class="sub">
                 <li>
@@ -186,6 +183,6 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li>*@
     </ul>
 </div>
