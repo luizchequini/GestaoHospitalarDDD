@@ -1,8 +1,15 @@
-﻿@model IEnumerable<Domain_GestaoHospitalar.Models.Paciente>
+﻿@using Web_GestaoHospitalar.ViewComponents.Helpers
+@model IEnumerable<Domain_GestaoHospitalar.Models.Paciente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Pacientes";
 }
+
+<vc:cabecalho-modulos titulo="Gestão Hospitalar" subtitulo="@ViewData["Title"]"></vc:cabecalho-modulos>
+
+<div class="row">
+    <partial name="PartialViews/_Estado_Paciente" />
+</div>
 
 <div class="row">
     <div class="panel panel-heading">
@@ -96,9 +103,9 @@
                                 @Html.DisplayFor(modelItem => item.RgDataEmissao)
                             </td>*@
                         <td>
-                            <a title="Editar Paciente" asp-controller="Pacientes" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil fa-2x"></span></a>
-                            <a title="Ver Detalhes do Paciente" asp-controller="Pacientes" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search fa-2x"></span></a>
-                            <a title="Excluir Paciente" asp-controller="Pacientes" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash fa-2x"></span></a>
+                            <a title="Editar" asp-controller="Pacientes" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil fa-2x"></span></a>
+                            <a title="Detalhes" asp-controller="Pacientes" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search fa-2x"></span></a>
+                            <a title="Excluir" asp-controller="Pacientes" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash fa-2x"></span></a>
                         </td>
                     </tr>
                 }
