@@ -1,4 +1,4 @@
-﻿namespace Web_GestaoHospitalar.ViewComponents.Helpers
+﻿namespace Web_GestaoHospitalar.Extentions.ViewComponents.Helpers
 {
     public class Modulo
     {

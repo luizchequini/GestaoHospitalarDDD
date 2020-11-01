@@ -1,4 +1,4 @@
-﻿@using Web_GestaoHospitalar.ViewComponents.Helpers
+﻿@using Web_GestaoHospitalar.Extentions.ViewComponents.Helpers
 @model IEnumerable<Domain_GestaoHospitalar.Models.Paciente>
 
 @{
@@ -20,6 +20,7 @@
         <p>
             <a asp-controller="Pacientes" asp-action="Create" class="btn btn-info"><span class="fa fa-plus-circle" />&nbsp;&nbsp;Adicionar Paciente</a>
         </p>
+
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>

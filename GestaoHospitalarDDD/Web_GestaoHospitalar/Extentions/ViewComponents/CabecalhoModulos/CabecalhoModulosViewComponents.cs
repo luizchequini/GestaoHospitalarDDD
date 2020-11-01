@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Web_GestaoHospitalar.ViewComponents.Helpers;
+using Web_GestaoHospitalar.Extentions.ViewComponents.Helpers;
 
-namespace Web_GestaoHospitalar.ViewComponents.CabecalhoModulos
+namespace Web_GestaoHospitalar.Extentions.ViewComponents.CabecalhoModulos
 {
     [ViewComponent(Name = "CabecalhoModulos")]
     public class CabecalhoModulosViewComponents : ViewComponent

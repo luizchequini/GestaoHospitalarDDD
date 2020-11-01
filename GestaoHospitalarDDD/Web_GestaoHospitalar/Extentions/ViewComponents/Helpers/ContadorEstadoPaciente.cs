@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Web_GestaoHospitalar.ViewComponents.Helpers
+namespace Web_GestaoHospitalar.Extentions.ViewComponents.Helpers
 {
     public class ContadorEstadoPaciente
     {
