@@ -13,10 +13,7 @@ namespace Web_GestaoHospitalar.Extentions.ViewComponents.Helpers
 
         public static decimal GetNumRegEstado(GestaoHospitalarDbContext ctx, string estado)
         {
-            return ctx.Pacientes
-                    .Include(x => x.EstadoPaciente)
-                    .AsNoTracking()
-                    .Count(x => x.EstadoPaciente.Descricao.Contains(estado));
+            return ctx.Pacientes.AsNoTracking().Count(x => x.EstadoPaciente.Descricao.Contains(estado));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@using Web_GestaoHospitalar.Extentions.ViewComponents.Helpers
+﻿@using Web_GestaoHospitalar.Extentions.ExtensionsMethods
 @model IEnumerable<Domain_GestaoHospitalar.Models.Paciente>
 
 @{
@@ -42,30 +42,21 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Ativo)
                     </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.Cpf)
-                        </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.TipoPaciente)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Sexo)
                     </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.Rg)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.RgOrgao)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.RgDataEmissao)
-                        </th>*@
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
+                    var dataNascimentoPtBr = item.DataNascimento.ToBrazilianDateTime();
+                    var dataInternacaoPtBr = item.DataInternacao.ToBrazilianDateTime();
+
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.EstadoPaciente.Descricao)
@@ -74,10 +65,10 @@
                             @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DataNascimento)
+                            @dataNascimentoPtBr
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DataInternacao)
+                            @dataInternacaoPtBr
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
@@ -85,24 +76,12 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Ativo)
                         </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.Cpf)
-                            </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.TipoPaciente)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Sexo)
                         </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.Rg)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.RgOrgao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.RgDataEmissao)
-                            </td>*@
                         <td>
                             <a title="Editar" asp-controller="Pacientes" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil fa-2x"></span></a>
                             <a title="Detalhes" asp-controller="Pacientes" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search fa-2x"></span></a>
