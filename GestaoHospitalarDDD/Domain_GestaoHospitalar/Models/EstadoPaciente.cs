@@ -1,4 +1,5 @@
 ﻿using Domain_GestaoHospitalar.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain_GestaoHospitalar.Models
@@ -9,5 +10,7 @@ namespace Domain_GestaoHospitalar.Models
         [Required(ErrorMessage = "O campo {0} é obrigatório!")]
         [StringLength(100, ErrorMessage = "O campo {0} deve ter entre {2} e {1} caracteres!", MinimumLength = 2)]
         public string Descricao { get; set; }
+
+        public virtual ICollection<Paciente> Paciente { get; set; }
     }
 }

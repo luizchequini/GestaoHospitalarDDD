@@ -4,14 +4,16 @@ using Data_GestaoHospitalar.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data_GestaoHospitalar.Migrations
 {
     [DbContext(typeof(GestaoHospitalarDbContext))]
-    partial class GestaoHospitalarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201218115148_AddMappingFluentApi-PacienteEstadoPaciente")]
+    partial class AddMappingFluentApiPacienteEstadoPaciente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +89,8 @@ namespace Data_GestaoHospitalar.Migrations
                 {
                     b.HasOne("Domain_GestaoHospitalar.Models.EstadoPaciente", "EstadoPaciente")
                         .WithMany("Paciente")
-                        .HasForeignKey("EstadoPacienteId");
+                        .HasForeignKey("EstadoPacienteId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
