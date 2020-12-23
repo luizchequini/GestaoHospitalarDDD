@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Data_GestaoHospitalar.ORM;
+﻿using Data_GestaoHospitalar.ORM;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Web_GestaoHospitalar.Data;
 
 namespace Web_GestaoHospitalar
 {
@@ -33,7 +31,18 @@ namespace Web_GestaoHospitalar
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<GestaoHospitalarDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<GestaoHospitalarDbContext>(options => 
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("DefaultConnection")));
+
+                services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("DefaultConnection")));
+
+                services.AddDefaultIdentity<IdentityUser>()
+                    .AddDefaultUI(UIFramework.Bootstrap4)
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -56,6 +65,8 @@ namespace Web_GestaoHospitalar
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseAuthentication();
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

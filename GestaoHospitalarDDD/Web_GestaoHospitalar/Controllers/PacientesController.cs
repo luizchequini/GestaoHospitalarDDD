@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Data_GestaoHospitalar.ORM;
 using Domain_GestaoHospitalar.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web_GestaoHospitalar.Controllers
 {
+    [Authorize]
     public class PacientesController : Controller
     {
         private readonly GestaoHospitalarDbContext _context;

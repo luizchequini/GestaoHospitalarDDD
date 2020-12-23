@@ -1,10 +1,6 @@
-﻿using Data_GestaoHospitalar.Mapping;
-using Domain_GestaoHospitalar.Models;
+﻿using Domain_GestaoHospitalar.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Data_GestaoHospitalar.ORM
 {

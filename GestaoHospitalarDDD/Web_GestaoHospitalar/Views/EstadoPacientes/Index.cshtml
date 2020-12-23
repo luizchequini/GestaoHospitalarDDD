@@ -1,12 +1,17 @@
 ﻿@model IEnumerable<Domain_GestaoHospitalar.Models.EstadoPaciente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Estado Paciente";
 }
+<vc:cabecalho-modulos titulo="Gestão Hospitalar" subtitulo="@ViewData["Title"]"></vc:cabecalho-modulos>
+
+<div class="row">
+    <partial name="PartialViews/_Estado_Paciente" />
+</div>
 
 <div class="row">
     <div class="panel panel-heading">
-        <h3>Lista de Pacientes</h3>
+        <h3>Lista de Estado Pacientes</h3>
     </div>
 
     <div class="panel panel-body">
@@ -19,29 +24,29 @@
         @*<table-grid Items="@Model"></table-grid>*@
 
         @*<table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Descricao)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descricao)
-                    </td>
-                    <td>
-                        <a title="Editar" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil fa-2x"></span></a>
-                        <a title="Detalhes" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search fa-2x"></span></a>
-                        <a title="Excluir" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash fa-2x"></span></a>
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>*@
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            <a title="Editar" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil fa-2x"></span></a>
+                            <a title="Detalhes" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search fa-2x"></span></a>
+                            <a title="Excluir" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash fa-2x"></span></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>*@
     </div>
 </div>
