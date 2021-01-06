@@ -12,7 +12,6 @@ namespace Data_GestaoHospitalar.Mapping
             
             builder.Property(p => p.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(80)")
                 .HasColumnName("Nome");
             
             builder.Property(p => p.Email)

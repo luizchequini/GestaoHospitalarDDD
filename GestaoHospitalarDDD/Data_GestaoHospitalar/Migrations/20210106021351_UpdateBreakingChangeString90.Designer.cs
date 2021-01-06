@@ -4,14 +4,16 @@ using Data_GestaoHospitalar.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data_GestaoHospitalar.Migrations
 {
     [DbContext(typeof(GestaoHospitalarDbContext))]
-    partial class GestaoHospitalarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106021351_UpdateBreakingChangeString90")]
+    partial class UpdateBreakingChangeString90
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -12,7 +12,6 @@ namespace Data_GestaoHospitalar.Mapping
             builder.HasKey(pk => pk.Id);
 
             builder.Property(p => p.Descricao)
-                .HasColumnType("varchar(30)")
                 .HasColumnName("Descricao");
 
             builder.HasMany(p => p.Paciente);
