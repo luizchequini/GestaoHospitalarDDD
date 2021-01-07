@@ -23,11 +23,11 @@
         "ASPNETCORE_ENVIRONMENT": "Staging"
       }
     },
-    "IIS - Prodution": {
+    "IIS - Production": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Prodution"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "Web_GestaoHospitalar": {

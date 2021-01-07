@@ -2,40 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KissLog;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Web_GestaoHospitalar.Controllers
 {
     public class LoggerController : Controller
     {
-        private readonly ILogger<LoggerController> _logger;
+        private readonly ILogger _logger;
 
-        public LoggerController(ILogger<LoggerController> logger)
+        public LoggerController(ILogger logger)
         {
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            var msgLogger = "TESTANDO EXIBIÇÃO DE LOGGER";
-
-            _logger.Log(LogLevel.Critical, msgLogger);
-            _logger.Log(LogLevel.Warning, msgLogger);
-            _logger.Log(LogLevel.Trace, msgLogger);
-            _logger.LogError(msgLogger);
+            var msgLogger = "ATENÇÃO: UM ERRO PROPOSITAL OCORREU.\nContate o administrador!";
 
             try
             {
-                throw new Exception("UMA EXCEÇÃO GERADA PARA DE TESTE DE AUDITORIA");
+                throw new Exception(msgLogger);
             }
             catch (Exception e)
             {
-
-                _logger.LogError(e.Message);
+                _logger.Error(e);
             }
 
-            ViewData["msgLogger"] = msgLogger;
+            _logger.Debug("Hello world from .NET Core 3.x!");
 
             return View();
         }
