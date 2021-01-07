@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Sistema de Auditoria";
+}
+
+<vc:cabecalho-modulos titulo="Gestão Hospitalar" subtitulo="@ViewData["Title"]"></vc:cabecalho-modulos>
+
+<div class="row">
+    <partial name="PartialViews/_Estado_Paciente" />
+</div>
+
+<div class="panel panel-default panel-controls">
+    <div class="panel panel-heading">
+        <h3>@ViewData["Title"]</h3>
+    </div>
+
+    <div class="panel panel-body">
+        <h3>@ViewData["msgLogger"]</h3>
+    </div>
+
+</div>
